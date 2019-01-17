@@ -1,0 +1,10 @@
+server:
+  port: 8702
+eureka:
+  instance:
+    hostname: blog-eureka-peer2
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://user:miFKwaMCtX7w@blog-eureka-peer1:8701/eureka/

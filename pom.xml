@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.lsliang.blog</groupId>
+	<artifactId>blog</artifactId>
+	<version>${blog.version}</version>
+	<packaging>pom</packaging>
+
+	<name>blog</name>
+	<description>博客</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.RELEASE</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>
+		<!-- Dependency versions 按字母排序 -->
+		<blog.version>1.0.0-SNAPSHOT</blog.version>
+		<blog-common.version>1.0.0-SNAPSHOT</blog-common.version>
+		<blog-core.version>1.0.0-SNAPSHOT</blog-core.version>
+		<blog-eureka.version>1.0.0-SNAPSHOT</blog-eureka.version>
+		<blog-user.version>1.0.0-SNAPSHOT</blog-user.version>
+		<!-- Third Dependency versions 按字母排序 -->
+		<commons-lang3.version>3.7</commons-lang3.version>
+		<fastjson.version>1.2.47</fastjson.version>
+		<p6spy.version>3.7.0</p6spy.version>
+		<vjkit.version>1.0.5</vjkit.version>
+		<hutool-http.version>4.4.0</hutool-http.version>
+		<!-- Plugin versions -->
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Spring Party -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Finchley.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- Blog Party -->
+			<dependency>
+				<groupId>org.lsliang.blog</groupId>
+				<artifactId>blog-common</artifactId>
+				<version>${blog-common.version}</version>
+			</dependency>
+			<!-- Third Party -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vip.vjtools</groupId>
+				<artifactId>vjkit</artifactId>
+				<version>${vjkit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>p6spy</groupId>
+				<artifactId>p6spy</artifactId>
+				<version>${p6spy.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-http</artifactId>
+				<version>${hutool-http.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>indy</finalName>
+	</build>
+
+	<modules>
+		<module>blog-common</module>
+		<module>blog-user-service</module>
+		<module>blog-eureka-service</module>
+		<module>blog-core-service</module>
+	</modules>
+</project>
