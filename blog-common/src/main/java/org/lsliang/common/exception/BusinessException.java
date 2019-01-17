@@ -21,5 +21,6 @@ public class BusinessException extends RuntimeException {
 	 * @Fields serialVersionUID  
 	 */
 	private static final long serialVersionUID = 8676504097976520428L;
+	
 
 }
